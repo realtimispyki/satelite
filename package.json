@@ -1,8 +1,17 @@
 {
-  "name": "my-v0-project",
-  "version": "0.1.0",
-  "private": true,
+  "name": "satellitesync-static",
+  "version": "1.0.0",
+  "description": "SatelliteSync - Static HTML Website",
+  "main": "index.html",
   "scripts": {
-    "build": "echo 'no build script'"
+    "start": "serve .",
+    "build": "echo 'Static site - no build needed'",
+    "dev": "serve ."
+  },
+  "devDependencies": {
+    "serve": "^14.0.0"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }
