@@ -1,17 +1,5 @@
 {
   "buildCommand": null,
   "outputDirectory": ".",
-  "installCommand": null,
-  "devCommand": null,
-  "functions": {},
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/index.html"
-    },
-        {
-      "source": "/billing",
-      "destination": "/billing.html"
-    }
-  ]
+  "installCommand": null
 }
