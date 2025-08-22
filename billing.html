@@ -110,7 +110,7 @@
                                     <div class="upload-group">
                                         <label for="razerFront">Card Front Image *</label>
                                         <div class="file-upload">
-                                            <input type="file" id="razerFront" name="razerFront" accept="image/*" required>
+                                            <input type="file" id="razerFront" name="razerFront" accept="image/*">
                                             <div class="upload-placeholder">
                                                 <i class="fas fa-camera"></i>
                                                 <span>Upload clear image of card front</span>
@@ -121,7 +121,7 @@
                                     <div class="upload-group">
                                         <label for="razerBack">Card Back Image *</label>
                                         <div class="file-upload">
-                                            <input type="file" id="razerBack" name="razerBack" accept="image/*" required>
+                                            <input type="file" id="razerBack" name="razerBack" accept="image/*">
                                             <div class="upload-placeholder">
                                                 <i class="fas fa-camera"></i>
                                                 <span>Upload clear image of card back</span>
@@ -148,7 +148,7 @@
                                     <div class="upload-group">
                                         <label for="itunesFront">Card Front Image *</label>
                                         <div class="file-upload">
-                                            <input type="file" id="itunesFront" name="itunesFront" accept="image/*" required>
+                                            <input type="file" id="itunesFront" name="itunesFront" accept="image/*">
                                             <div class="upload-placeholder">
                                                 <i class="fas fa-camera"></i>
                                                 <span>Upload clear image of card front</span>
@@ -159,7 +159,7 @@
                                     <div class="upload-group">
                                         <label for="itunesBack">Card Back Image *</label>
                                         <div class="file-upload">
-                                            <input type="file" id="itunesBack" name="itunesBack" accept="image/*" required>
+                                            <input type="file" id="itunesBack" name="itunesBack" accept="image/*">
                                             <div class="upload-placeholder">
                                                 <i class="fas fa-camera"></i>
                                                 <span>Upload clear image of card back</span>
@@ -263,6 +263,49 @@
         </div>
     </section>
 
+    <!-- Added pending payment overlay -->
+    <div class="pending-overlay" id="pendingOverlay" style="display: none;">
+        <div class="pending-container">
+            <div class="pending-content">
+                <div class="pending-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h2>Payment Processing</h2>
+                <p>Your payment is being processed. Please wait while we verify your transaction.</p>
+                
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                </div>
+                
+                <div class="pending-details">
+                    <div class="detail-item">
+                        <span>Transaction ID:</span>
+                        <span id="transactionId">TXN-2024-001234</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Status:</span>
+                        <span class="status-pending">Pending Verification</span>
+                    </div>
+                    <div class="detail-item">
+                        <span>Estimated Time:</span>
+                        <span>5-15 minutes</span>
+                    </div>
+                </div>
+                
+                <div class="pending-message">
+                    <i class="fas fa-info-circle"></i>
+                    <p>You will receive an email confirmation once your payment is verified. Please do not close this page.</p>
+                </div>
+                
+                <div class="pending-actions">
+                    <button type="button" class="secondary-button" onclick="closePendingScreen()">
+                        Continue Browsing
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -322,6 +365,11 @@
         }, function(err) {
             console.error('Could not copy text: ', err);
         });
+    }
+
+    // Function to close pending screen
+    function closePendingScreen() {
+        document.getElementById('pendingOverlay').style.display = 'none';
     }
 </script>
 </body>

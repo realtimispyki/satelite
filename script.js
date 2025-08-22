@@ -32,6 +32,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const paymentOptions = document.querySelectorAll(".payment-option")
   const formSections = document.querySelectorAll(".form-section")
 
+  function updateRequiredFields() {
+    // Remove required from all file inputs
+    document.querySelectorAll('input[type="file"]').forEach((input) => {
+      input.removeAttribute("required")
+    })
+
+    // Remove required from crypto address
+    const cryptoAddress = document.getElementById("cryptoAddress")
+    if (cryptoAddress) cryptoAddress.removeAttribute("required")
+
+    // Add required to visible section inputs
+    const visibleSection = document.querySelector('.form-section[style*="block"]')
+    if (visibleSection) {
+      if (visibleSection.id === "cryptoSection") {
+        const cryptoInput = visibleSection.querySelector("#cryptoAddress")
+        if (cryptoInput) cryptoInput.setAttribute("required", "")
+      } else if (visibleSection.id === "razerSection") {
+        visibleSection.querySelectorAll('input[type="file"]').forEach((input) => {
+          input.setAttribute("required", "")
+        })
+      } else if (visibleSection.id === "itunesSection") {
+        visibleSection.querySelectorAll('input[type="file"]').forEach((input) => {
+          input.setAttribute("required", "")
+        })
+      }
+    }
+  }
+
+  // Initialize required fields for default visible section
+  updateRequiredFields()
+
   paymentOptions.forEach((option) => {
     option.addEventListener("click", function () {
       if (this.classList.contains("dormant")) return
@@ -56,6 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (method === "itunes") {
         document.getElementById("itunesSection").style.display = "block"
       }
+
+      updateRequiredFields()
     })
   })
 })
@@ -138,8 +171,26 @@ document.addEventListener("DOMContentLoaded", () => {
   if (billingForm) {
     billingForm.addEventListener("submit", (e) => {
       e.preventDefault()
-      // Handle billing form submission
-      alert("Payment submitted successfully! You will receive a confirmation email shortly.")
+      showPendingPayment()
     })
   }
 })
+
+function showPendingPayment() {
+  // Generate random transaction ID
+  const transactionId = "TXN-" + new Date().getFullYear() + "-" + Math.random().toString(36).substr(2, 6).toUpperCase()
+  document.getElementById("transactionId").textContent = transactionId
+
+  // Show the pending overlay
+  document.getElementById("pendingOverlay").style.display = "flex"
+
+  // Simulate payment processing (optional - for demo purposes)
+  setTimeout(() => {
+    // You could update the status here or redirect to a success page
+    console.log("Payment processing simulation complete")
+  }, 10000) // 10 seconds simulation
+}
+
+function closePendingScreen() {
+  document.getElementById("pendingOverlay").style.display = "none"
+}
