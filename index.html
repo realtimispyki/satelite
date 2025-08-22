@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Satellite Subscription Service - Subscribe Your Device Easily</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-satellite"></i>
+                    <span>SatelliteSync</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#subscribe" class="nav-link">Subscribe</a></li>
+                    <li><a href="#plans" class="nav-link">Plans</a></li>
+                    <li><a href="#support" class="nav-link">Support</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Subscribe Your Satellite Device Easily</h1>
+                <p class="hero-subtitle">Experience lightning-fast activation, multiple secure payment options, and global coverage for your satellite devices. Join thousands of satisfied customers worldwide.</p>
+                <button class="cta-button" onclick="scrollToSection('subscribe')">
+                    Subscribe Now
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+            <div class="hero-image">
+                <div class="satellite-animation">
+                    <i class="fas fa-satellite-dish"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscription Form Section -->
+    <section id="subscribe" class="subscription-section">
+        <div class="container">
+            <h2 class="section-title">Subscribe Your Device</h2>
+            <p class="section-subtitle">Fill in your device and personal information to get started</p>
+            
+            <form class="subscription-form" id="subscriptionForm">
+                <div class="form-group-container">
+                    <div class="form-group">
+                        <h3>Device Information</h3>
+                        <div class="input-group">
+                            <label for="deviceId">Device ID</label>
+                            <input type="text" id="deviceId" name="deviceId" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="model">Model</label>
+                            <input type="text" id="model" name="model" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="serialNumber">Serial Number</label>
+                            <input type="text" id="serialNumber" name="serialNumber" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <h3>Personal Information</h3>
+                        <div class="input-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <h3>Payment Method</h3>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="apple" required>
+                            <div class="payment-card">
+                                <i class="fab fa-apple"></i>
+                                <span>Apple/iTunes Card</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="razer" required>
+                            <div class="payment-card">
+                                <i class="fas fa-gamepad"></i>
+                                <span>Razer Gold</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="paypal" required>
+                            <div class="payment-card">
+                                <i class="fab fa-paypal"></i>
+                                <span>PayPal</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="mastercard" required>
+                            <div class="payment-card">
+                                <i class="fab fa-cc-mastercard"></i>
+                                <span>MasterCard</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="visa" required>
+                            <div class="payment-card">
+                                <i class="fab fa-cc-visa"></i>
+                                <span>Visa</span>
+                            </div>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="payment" value="crypto" required>
+                            <div class="payment-card">
+                                <i class="fab fa-bitcoin"></i>
+                                <span>Crypto Wallet</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-button">
+                    Continue to Billing
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Plans & Pricing Section -->
+    <section id="plans" class="plans-section">
+        <div class="container">
+            <h2 class="section-title">Choose Your Plan</h2>
+            <p class="section-subtitle">Select the perfect subscription package for your needs</p>
+            
+            <div class="plans-grid">
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>Basic</h3>
+                        <div class="price">$500<span>/month</span></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i>50+ satellite channels</li>
+                        <li><i class="fas fa-check"></i>HD Quality</li>
+                        <li><i class="fas fa-check"></i>30 Days Validity</li>
+                        <li><i class="fas fa-check"></i>Email Support</li>
+                    </ul>
+                    <button class="plan-button" onclick="location.href='billing.html?plan=basic'">Subscribe</button>
+                </div>
+
+                <div class="plan-card featured">
+                    <div class="plan-badge">Most Popular</div>
+                    <div class="plan-header">
+                        <h3>Standard</h3>
+                        <div class="price">$750<span>/month</span></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i>150+ satellite channels</li>
+                        <li><i class="fas fa-check"></i>4K Quality</li>
+                        <li><i class="fas fa-check"></i>60 Days Validity</li>
+                        <li><i class="fas fa-check"></i>Priority Support</li>
+                        <li><i class="fas fa-check"></i>Multi-Device Access</li>
+                    </ul>
+                    <button class="plan-button" onclick="location.href='billing.html?plan=standard'">Subscribe</button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-header">
+                        <h3>Premium</h3>
+                        <div class="price">$1000<span>/month</span></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fas fa-check"></i>300+ satellite channels</li>
+                        <li><i class="fas fa-check"></i>4K Ultra Quality</li>
+                        <li><i class="fas fa-check"></i>90 Days Validity</li>
+                        <li><i class="fas fa-check"></i>24/7 Support</li>
+                        <li><i class="fas fa-check"></i>Unlimited Devices</li>
+                        <li><i class="fas fa-check"></i>Premium Content</li>
+                    </ul>
+                    <button class="plan-button" onclick="location.href='billing.html?plan=premium'">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <div class="container">
+            <h2 class="section-title">Why Choose SatelliteSync?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Payments</h3>
+                    <p>Bank-level encryption and multiple secure payment options to protect your transactions.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Instant Activation</h3>
+                    <p>Your satellite device is activated within minutes of successful payment confirmation.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock customer support to help you with any questions or technical issues.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Worldwide Access</h3>
+                    <p>Global satellite coverage ensuring you stay connected wherever you are in the world.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-carousel">
+                <div class="testimonial-card active">
+                    <div class="testimonial-content">
+                        <p>"SatelliteSync made subscribing my device incredibly easy. The activation was instant and the service quality is outstanding!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <span>Maritime Professional</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Excellent customer support and reliable service. I've been using SatelliteSync for over a year and couldn't be happier."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael Chen</h4>
+                            <span>Remote Worker</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"The global coverage is amazing. I travel frequently and SatelliteSync keeps me connected everywhere I go."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Emma Rodriguez</h4>
+                            <span>Travel Blogger</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-dots">
+                <span class="dot active" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-satellite"></i>
+                        <span>SatelliteSync</span>
+                    </div>
+                    <p>Your trusted partner for satellite device subscriptions worldwide.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#subscribe">Subscribe</a></li>
+                        <li><a href="#plans">Plans</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Technical Support</a></li>
+                        <li><a href="#">Device Setup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> support@satellitesync.com</p>
+                        <p><i class="fas fa-clock"></i> 24/7 Support Available</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SatelliteSync. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

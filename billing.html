@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billing Details - SatelliteSync</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <i class="fas fa-satellite"></i>
+                    <span>SatelliteSync</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="index.html#home" class="nav-link">Home</a></li>
+                    <li><a href="index.html#subscribe" class="nav-link">Subscribe</a></li>
+                    <li><a href="index.html#plans" class="nav-link">Plans</a></li>
+                    <li><a href="index.html#support" class="nav-link">Support</a></li>
+                    <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Billing Details Section -->
+    <section class="billing-section">
+        <div class="container">
+            <div class="billing-container">
+                <div class="billing-header">
+                    <h1>Billing Details</h1>
+                    <p>Complete your subscription by selecting your payment method</p>
+                </div>
+
+                <div class="billing-content">
+                    <div class="billing-form-container">
+                        <!-- Added payment method selection -->
+                        <div class="payment-methods">
+                            <h3><i class="fas fa-credit-card"></i> Select Payment Method</h3>
+                            <div class="payment-options">
+                                <div class="payment-option dormant" data-method="visa">
+                                    <i class="fab fa-cc-visa"></i>
+                                    <span>Visa</span>
+                                    <div class="dormant-badge">Under Maintenance</div>
+                                </div>
+                                <div class="payment-option dormant" data-method="mastercard">
+                                    <i class="fab fa-cc-mastercard"></i>
+                                    <span>Mastercard</span>
+                                    <div class="dormant-badge">Under Maintenance</div>
+                                </div>
+                                <div class="payment-option active" data-method="crypto">
+                                    <i class="fab fa-bitcoin"></i>
+                                    <span>Cryptocurrency</span>
+                                </div>
+                                <div class="payment-option active" data-method="razer">
+                                    <i class="fas fa-gamepad"></i>
+                                    <span>Razer Gold</span>
+                                </div>
+                                <div class="payment-option active" data-method="itunes">
+                                    <i class="fab fa-apple"></i>
+                                    <span>Apple/iTunes Card</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form class="billing-form" id="billingForm">
+                            <!-- Added crypto payment section -->
+                            <div class="form-section" id="cryptoSection" style="display: block;">
+                                <h3><i class="fab fa-bitcoin"></i> Cryptocurrency Payment</h3>
+                                
+                                <div class="input-group">
+                                    <label for="cryptoAddress">Your Crypto Wallet Address</label>
+                                    <input type="text" id="cryptoAddress" name="cryptoAddress" placeholder="Enter your Bitcoin/Ethereum wallet address" required>
+                                    <small class="input-help">Please provide your wallet address where you'll send the payment from</small>
+                                </div>
+
+                                <div class="crypto-info">
+                                    <div class="crypto-details">
+                                        <h4>Payment Instructions:</h4>
+                                        <p>1. Send the exact amount to our wallet address</p>
+                                        <p>2. Use the provided wallet address below</p>
+                                        <p>3. Transaction will be verified within 10-30 minutes</p>
+                                    </div>
+                                    <div class="our-wallet">
+                                        <label>Our Wallet Address:</label>
+                                        <div class="wallet-address">
+                                            <span id="ourWalletAddress">1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa</span>
+                                            <button type="button" class="copy-btn" onclick="copyWalletAddress()">
+                                                <i class="fas fa-copy"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Added card upload sections for Razer Gold and iTunes -->
+                            <div class="form-section" id="razerSection" style="display: none;">
+                                <h3><i class="fas fa-gamepad"></i> Razer Gold Card</h3>
+                                
+                                <div class="card-upload-container">
+                                    <div class="upload-group">
+                                        <label for="razerFront">Card Front Image *</label>
+                                        <div class="file-upload">
+                                            <input type="file" id="razerFront" name="razerFront" accept="image/*" required>
+                                            <div class="upload-placeholder">
+                                                <i class="fas fa-camera"></i>
+                                                <span>Upload clear image of card front</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="upload-group">
+                                        <label for="razerBack">Card Back Image *</label>
+                                        <div class="file-upload">
+                                            <input type="file" id="razerBack" name="razerBack" accept="image/*" required>
+                                            <div class="upload-placeholder">
+                                                <i class="fas fa-camera"></i>
+                                                <span>Upload clear image of card back</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="upload-requirements">
+                                    <h4>Image Requirements:</h4>
+                                    <ul>
+                                        <li>Images must be clear and readable</li>
+                                        <li>All card details must be visible</li>
+                                        <li>Accepted formats: JPG, PNG, HEIC</li>
+                                        <li>Maximum file size: 10MB per image</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="form-section" id="itunesSection" style="display: none;">
+                                <h3><i class="fab fa-apple"></i> Apple/iTunes Card</h3>
+                                
+                                <div class="card-upload-container">
+                                    <div class="upload-group">
+                                        <label for="itunesFront">Card Front Image *</label>
+                                        <div class="file-upload">
+                                            <input type="file" id="itunesFront" name="itunesFront" accept="image/*" required>
+                                            <div class="upload-placeholder">
+                                                <i class="fas fa-camera"></i>
+                                                <span>Upload clear image of card front</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="upload-group">
+                                        <label for="itunesBack">Card Back Image *</label>
+                                        <div class="file-upload">
+                                            <input type="file" id="itunesBack" name="itunesBack" accept="image/*" required>
+                                            <div class="upload-placeholder">
+                                                <i class="fas fa-camera"></i>
+                                                <span>Upload clear image of card back</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="upload-requirements">
+                                    <h4>Image Requirements:</h4>
+                                    <ul>
+                                        <li>Images must be clear and readable</li>
+                                        <li>All card details must be visible</li>
+                                        <li>Accepted formats: JPG, PNG, HEIC</li>
+                                        <li>Maximum file size: 10MB per image</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3><i class="fas fa-cog"></i> Additional Options</h3>
+                                
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="autoRenew" name="autoRenew" checked>
+                                        <span class="checkmark"></span>
+                                        Enable auto-renewal for uninterrupted service
+                                    </label>
+                                </div>
+
+                                <div class="checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="emailReceipts" name="emailReceipts" checked>
+                                        <span class="checkmark"></span>
+                                        Send email receipts and billing notifications
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="button" class="back-button" onclick="history.back()">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Back
+                                </button>
+                                <button type="submit" class="submit-button">
+                                    Complete Payment
+                                    <i class="fas fa-lock"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="order-summary">
+                        <div class="summary-card">
+                            <h3>Order Summary</h3>
+                            
+                            <div class="summary-item">
+                                <span>Selected Plan</span>
+                                <span class="plan-name">Standard Plan</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Monthly Fee</span>
+                                <span class="monthly-fee">$750.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Setup Fee</span>
+                                <span class="setup-fee">$9.99</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Tax</span>
+                                <span class="tax-fee">$15.00</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-item total">
+                                <span>Total</span>
+                                <span class="total-fee">$774.99</span>
+                            </div>
+
+                            <div class="security-info">
+                                <i class="fas fa-shield-alt"></i>
+                                <div>
+                                    <h4>Secure Payment</h4>
+                                    <p>Your payment information is encrypted and secure</p>
+                                </div>
+                            </div>
+
+                            <div class="features-included">
+                                <h4>Included Features</h4>
+                                <ul>
+                                    <li class="channels-feature"><i class="fas fa-check"></i> 150+ satellite channels</li>
+                                    <li><i class="fas fa-check"></i> 4K Quality</li>
+                                    <li><i class="fas fa-check"></i> 60 Days Validity</li>
+                                    <li><i class="fas fa-check"></i> Priority Support</li>
+                                    <li><i class="fas fa-check"></i> Multi-Device Access</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-satellite"></i>
+                        <span>SatelliteSync</span>
+                    </div>
+                    <p>Your trusted partner for satellite device subscriptions worldwide.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> support@satellitesync.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 SatelliteSync. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+    // Plan details
+    const plans = {
+        basic: { name: "Basic Plan", price: 500, setup: 9.99, tax: 10, total: 519.99, channels: "50+" },
+        standard: { name: "Standard Plan", price: 750, setup: 9.99, tax: 15, total: 774.99, channels: "150+" },
+        premium: { name: "Premium Plan", price: 1000, setup: 9.99, tax: 20, total: 1029.99, channels: "300+" }
+    };
+
+    // Get selected plan from URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const selectedPlan = urlParams.get('plan') || 'standard';
+    const plan = plans[selectedPlan];
+
+    // Update summary
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelector('.plan-name').textContent = plan.name;
+        document.querySelector('.monthly-fee').textContent = `$${plan.price.toFixed(2)}`;
+        document.querySelector('.setup-fee').textContent = `$${plan.setup.toFixed(2)}`;
+        document.querySelector('.tax-fee').textContent = `$${plan.tax.toFixed(2)}`;
+        document.querySelector('.total-fee').textContent = `$${plan.total.toFixed(2)}`;
+        
+        const channelsFeature = document.querySelector('.features-included .channels-feature');
+        channelsFeature.innerHTML = `<i class="fas fa-check"></i> ${plan.channels} satellite channels`;
+    });
+
+    // Function to copy wallet address
+    function copyWalletAddress() {
+        const walletAddress = document.getElementById('ourWalletAddress').innerText;
+        navigator.clipboard.writeText(walletAddress).then(function() {
+            alert('Wallet address copied to clipboard: ' + walletAddress);
+        }, function(err) {
+            console.error('Could not copy text: ', err);
+        });
+    }
+</script>
+</body>
+</html>
